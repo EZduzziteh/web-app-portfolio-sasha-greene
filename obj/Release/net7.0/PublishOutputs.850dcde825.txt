@@ -1,0 +1,7 @@
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\portfolio-web-app.exe
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\appsettings.json
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\portfolio-web-app.dll
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\portfolio-web-app.deps.json
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\portfolio-web-app.runtimeconfig.json
+C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\obj\Release\net7.0\PubTmp\Out\portfolio-web-app.pdb
