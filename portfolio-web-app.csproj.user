@@ -4,6 +4,6 @@
     <ActiveDebugProfile>https</ActiveDebugProfile>
     <RazorPage_SelectedScaffolderID>RazorPageScaffolder</RazorPage_SelectedScaffolderID>
     <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorPage</RazorPage_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\Properties\PublishProfiles\Sasha-Greene-Portfolio - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Sasha\Documents\GitHub\Portfolio-Web-App\portfolio-web-app\.github\workflows\Sasha-Greene-Portfolio.yml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
