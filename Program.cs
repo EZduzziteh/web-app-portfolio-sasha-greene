@@ -1,7 +1,13 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using portfolio_web_app.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<portfolio_web_appContext>(options => 
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("portfolioDBConnectionString")));
 
 var app = builder.Build();
 
