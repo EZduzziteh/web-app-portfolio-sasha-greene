@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>portfolio_web_app</RootNamespace>
+    <UserSecretsId>efa33d9e-da63-451d-9c80-9fd78509684e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

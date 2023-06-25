@@ -1,13 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using portfolio_web_app.Data;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+IConfiguration configuration = configurationBuilder.AddUserSecrets<Program>().Build();
+string dbToken = configuration.GetSection("ConnectionStrings")["portfolioDBConnectionString"];
+
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<portfolio_web_appContext>(options => 
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("portfolioDBConnectionString")));
+builder.Services.AddDbContext<portfolio_web_appContext>(options =>
+     options.UseSqlServer(builder.Configuration.GetConnectionString("portfolioDBConnectionString")));
 
 var app = builder.Build();
 
