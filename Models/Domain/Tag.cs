@@ -4,6 +4,6 @@
     {
         public Guid id { get; set; }
         public string Name { get; set; }
-        public Guid BlogPostId { get;set;}
+        public Guid DevLogID { get;set;}
     }
 }

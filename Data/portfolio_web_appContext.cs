@@ -10,7 +10,8 @@ namespace portfolio_web_app.Data
 
         }
 
-        public DbSet<BlogPost> BlogPosts { get; set; }
+        //#TODO maybe error here
+        public DbSet<DevLogPost> DevLogPosts { get; set; }
 
         public DbSet<Tag> Tags { get; set; }
     }

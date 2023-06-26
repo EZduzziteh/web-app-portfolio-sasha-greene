@@ -1,6 +1,6 @@
 ﻿namespace portfolio_web_app.Models.ViewModels
 {
-    public class AddBlogPost
+    public class AddDevLog
     {
         public string Heading { get; set; }
         public string PageTitle { get; set; }

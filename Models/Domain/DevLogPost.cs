@@ -1,6 +1,6 @@
 ﻿namespace portfolio_web_app.Models.Domain
 {
-    public class BlogPost
+    public class DevLogPost
     {
         public Guid id { get; set; }
         public string Heading { get; set; }

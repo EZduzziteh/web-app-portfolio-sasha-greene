@@ -12,7 +12,7 @@ namespace portfolio_web_app.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BlogPosts",
+                name: "DevLogPosts",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -28,7 +28,7 @@ namespace portfolio_web_app.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BlogPosts", x => x.id);
+                    table.PrimaryKey("PK_DevLogPosts", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -37,7 +37,7 @@ namespace portfolio_web_app.Migrations
                 {
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BlogPostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    DevLogID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,7 +49,7 @@ namespace portfolio_web_app.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BlogPosts");
+                name: "DevLogPosts");
 
             migrationBuilder.DropTable(
                 name: "Tags");

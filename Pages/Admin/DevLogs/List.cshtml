@@ -1,0 +1,47 @@
+﻿@page
+@model portfolio_web_app.Pages.Admin.DevLogs.ListModel
+@{
+}
+<div class="bg-secondary bg-opacity-10 py-2 mb-5">
+
+	<div class="container">
+
+		<h1> Dev Logs </h1>
+
+
+
+	</div>
+
+</div>
+
+@if(Model.devLogPosts!=null && Model.devLogPosts.Any()){
+
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Heading</td>
+					<td> </td>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(var post in Model.devLogPosts)
+				{
+					<tr>
+						<td>@post.id</td>
+						<td>@post.Heading</td>
+						<td><a href ="/Admin/DevLogs/Edit/@post.id">View</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+
+}else{
+
+	<div class=" = container">
+		<p>Error: No dev logs were found! </p>
+	</div>
+}

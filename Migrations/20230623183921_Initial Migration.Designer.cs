@@ -25,7 +25,7 @@ namespace portfolio_web_app.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("portfolio_web_app.Models.Domain.BlogPost", b =>
+            modelBuilder.Entity("portfolio_web_app.Models.Domain.DevLogPost", b =>
                 {
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace portfolio_web_app.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("BlogPosts");
+                    b.ToTable("DevLogPosts");
                 });
 
             modelBuilder.Entity("portfolio_web_app.Models.Domain.Tag", b =>
@@ -76,7 +76,7 @@ namespace portfolio_web_app.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BlogPostId")
+                    b.Property<Guid>("DevLogID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
