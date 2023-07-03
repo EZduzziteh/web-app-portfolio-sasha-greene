@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using portfolio_web_app.Data;
+using portfolio_web_app.Repositories;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,7 @@ string dbToken = configuration.GetSection("ConnectionStrings")["portfolioDBConne
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<portfolio_web_appContext>(options =>
      options.UseSqlServer(builder.Configuration.GetConnectionString("portfolioDBConnectionString")));
-
+builder.Services.AddScoped<IDevLogRepository, DevLogRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

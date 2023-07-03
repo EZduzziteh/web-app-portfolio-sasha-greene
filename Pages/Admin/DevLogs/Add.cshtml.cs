@@ -3,18 +3,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using portfolio_web_app.Data;
 using portfolio_web_app.Models.Domain;
 using portfolio_web_app.Models.ViewModels;
+using portfolio_web_app.Repositories;
 
 namespace portfolio_web_app.Pages.Admin.DevLogs
 {
     public class AddModel : PageModel
     {
-        private readonly portfolio_web_appContext portfolio_Web_AppContext;
+        private readonly IDevLogRepository devLogRepository;
         [BindProperty]
         public AddDevLog AddDevLogRequest { get; set; }
 
-        public AddModel(portfolio_web_appContext portfolio_Web_AppContext)
-        {
-            this.portfolio_Web_AppContext = portfolio_Web_AppContext;
+        public AddModel(IDevLogRepository devLogRepository) { 
+            this.devLogRepository = devLogRepository;
         }
 
         public void OnGet()
@@ -36,8 +36,8 @@ namespace portfolio_web_app.Pages.Admin.DevLogs
                 Author = AddDevLogRequest.Author,
                 Visible = AddDevLogRequest.Visible
             };
-            portfolio_Web_AppContext.DevLogPosts.AddAsync(devLogPost);
-            await portfolio_Web_AppContext.SaveChangesAsync();
+
+            await devLogRepository.AddAsync(devLogPost);
 
             return RedirectToPage("/Admin/DevLogs/List");
 

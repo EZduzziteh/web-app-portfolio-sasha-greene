@@ -3,47 +3,34 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using portfolio_web_app.Data;
 using portfolio_web_app.Models.Domain;
+using portfolio_web_app.Repositories;
 
 namespace portfolio_web_app.Pages.Admin.DevLogs
 {
     public class EditModel : PageModel
     {
-		private readonly portfolio_web_appContext appContext;
+        private readonly IDevLogRepository devLogRepository;
 		[BindProperty]
         public DevLogPost devLogPost { get; set; }
-        public EditModel(portfolio_web_appContext appContext)
+
+
+        public EditModel(IDevLogRepository devLogRepository)
         {
-			this.appContext = appContext;
+			this.devLogRepository = devLogRepository;
 		}
 
 	
 
 		public async Task OnGet(Guid id)
         {
-			devLogPost = await appContext.DevLogPosts.FindAsync(id);
+			devLogPost = await devLogRepository.GetAsync(id);
 
 			
         }
 
 		public async Task<IActionResult> OnPostEdit()
 		{
-            var existingDevLogPost = await appContext.DevLogPosts.FindAsync(devLogPost.id);
-
-			if(existingDevLogPost!= null)
-			{
-				existingDevLogPost.Heading = devLogPost.Heading;
-				existingDevLogPost.PageTitle = devLogPost.PageTitle;
-                existingDevLogPost.Content = devLogPost.Content;
-                existingDevLogPost.ShortDescription = devLogPost.ShortDescription;
-                existingDevLogPost.FeaturedImageUrl = devLogPost.FeaturedImageUrl;
-				existingDevLogPost.UrlHandle = devLogPost.UrlHandle;
-                existingDevLogPost.PublishedDate = devLogPost.PublishedDate;
-                existingDevLogPost.Author = devLogPost.Author;
-                existingDevLogPost.Visible = devLogPost.Visible;
-
-			}
-
-            await appContext.SaveChangesAsync();
+            await devLogRepository.UpdateAsync(devLogPost);
 
             return RedirectToPage("/Admin/DevLogs/List");
 
@@ -51,15 +38,12 @@ namespace portfolio_web_app.Pages.Admin.DevLogs
 
         public async Task<IActionResult> OnPostDelete()
         {
-            var existingDevLogPost = await appContext.DevLogPosts.FindAsync(devLogPost.id);
+            bool deleted = await devLogRepository.DeleteAsync(devLogPost.id);
+            if (deleted) {
 
-            if (existingDevLogPost != null)
-            {
-               appContext.DevLogPosts.Remove(existingDevLogPost);
-               await appContext.SaveChangesAsync();
-               return RedirectToPage("/Admin/DevLogs/List");
+                return RedirectToPage("/Admin/DevLogs/List");
+
             }
-
             return Page();
 
            

@@ -3,17 +3,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using portfolio_web_app.Data;
 using portfolio_web_app.Models.Domain;
+using portfolio_web_app.Repositories;
 
 namespace portfolio_web_app.Pages.Admin.DevLogs
 {
     public class ListModel : PageModel
     {
-        private readonly portfolio_web_appContext context;
+        private readonly IDevLogRepository devLogRepository;
 
         public List<DevLogPost> devLogPosts { get; set; }
-        public ListModel(portfolio_web_appContext context)
+        public ListModel(IDevLogRepository devLogRepository)
         {
-            this.context = context;
+            this.devLogRepository = devLogRepository;
         }
 
        
@@ -21,7 +22,7 @@ namespace portfolio_web_app.Pages.Admin.DevLogs
         public async Task OnGet()
         {
             //#TODO maybe error here
-            devLogPosts = await context.DevLogPosts.ToListAsync();
+            devLogPosts = (await devLogRepository.GetAllAsync())?.ToList();
 
         }
     }
